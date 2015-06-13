@@ -1,5 +1,3 @@
-'use strict';
-
 var React = require('react');
 
 var Header = require('./Header');
@@ -9,8 +7,9 @@ var Header = require('./Header');
 
 module.exports = React.createClass({
     render: function() {
-        return <div>
+        return (<div>
             <Header />
-        </div>;
+        </div>
+        );
     }
 });

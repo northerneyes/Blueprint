@@ -23,15 +23,12 @@
     ]
   },
   "devDependencies": {
-  	"flux": "^2.0.1",
-  	"react": "^0.12.2",
-
+    "flux": "^2.0.1",
+    "react": "^0.12.2",
     "browser-sync": "~2.6.5",
-    
     "browserify": "^8.0.2",
-    "browserify-shim": "^3.8.2",    
+    "browserify-shim": "^3.8.2",
     "reactify": "^0.17.1",
-
     "gulp": "^3.8.7",
     "gulp-autoprefixer": "^2.0.0",
     "gulp-filesize": "0.0.6",
@@ -45,12 +42,12 @@
     "gulp-concat": "^2.4.3",
     "gulp-clean": "^0.3.1",
     "gulp-changed": "^1.1.0",
-
     "watchify": "^2.2.1",
-
     "pretty-hrtime": "^1.0.0",
     "vinyl-buffer": "^1.0.0",
-    "vinyl-source-stream": "~0.1.1"
+    "vinyl-source-stream": "~0.1.1",
+    "eslint": "^0.22.1",
+    "eslint-plugin-react": "^2.5.0"
   },
   "author": "George Bukhanov",
   "license": "MIT"
