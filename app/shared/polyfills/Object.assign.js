@@ -1,14 +1,13 @@
-"use strict";
-
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign
 if(!Object.assign) {
-	Object.defineProperty(Object, "assign", {
+	Object.defineProperty(Object, 'assign', {
 		enumerable: false,
 		configurable: true,
 		writable: true,
-		value: function(target, firstSource) {
-			if(target === undefined || target === null)
-				throw new TypeError("Cannot convert first argument to object");
+		value: function(target) {
+			if(target === undefined || target === null) {
+				throw new TypeError('Cannot convert first argument to object');
+			}
 
 			var to = Object(target);
 
@@ -17,16 +16,18 @@ if(!Object.assign) {
 
 			for(var i = 1; i < arguments.length; i++) {
 				var nextSource = arguments[i];
-				if(nextSource === undefined || nextSource === null)
+				if(nextSource === undefined || nextSource === null) {
 					continue;
+				}
 
 				var keysArray = Object.keys(Object(nextSource));
 				for(var nextIndex = 0, len = keysArray.length; nextIndex < len; nextIndex++) {
 					var nextKey = keysArray[nextIndex];
 					try {
 						var desc = Object.getOwnPropertyDescriptor(nextSource, nextKey);
-						if(desc !== undefined && desc.enumerable)
+						if(desc !== undefined && desc.enumerable) {
 							to[nextKey] = nextSource[nextKey];
+						}
 					} catch(e) {
 						if(!hasPendingException) {
 							hasPendingException = true;
@@ -35,8 +36,9 @@ if(!Object.assign) {
 					}
 				}
 
-				if(hasPendingException)
+				if(hasPendingException) {
 					throw pendingException;
+				}
 			}
 			return to;
 		}

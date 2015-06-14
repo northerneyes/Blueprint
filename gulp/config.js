@@ -1,5 +1,3 @@
-'use strict';
-
 var dest = './dist';
 var src = './app';
 
@@ -8,7 +6,7 @@ module.exports = {
 	devMode: true,
 	vendor_styles: [],
 	browserSync: {
-		open: true,
+		open: false,
 		server: {
 			baseDir: dest
 		}
@@ -20,7 +18,7 @@ module.exports = {
 			outputName: 'vendor.js',
 			require: ['jquery', 'lodash', 'backbone', 'react', 'flux']
 		}, {
-			entries: src + '/index.js',
+			entries: src + '/',
 			sourcemap: true,
 			dest: dest,
 			outputName: 'app.js',
@@ -30,7 +28,7 @@ module.exports = {
 	},
 	src_css: "app/assets/css/**/*.css",
 	src_views: './app/**/*.html',
-	src_fonts: './app/assets/fonts/*',
+	src_fonts: './app/assets/fonts/**/*',
 	src_scripts: './app/**/*.js',
 	dest_css: './dist/assets/css/',
 	dest_scripts: './dist/assets/js/',

@@ -1,14 +1,12 @@
-'use strict';
-
 var gulp = require('gulp'),
 	config = require('./gulp/config'),
-	jshint = require('gulp-jshint'),
 	browserSync = require('browser-sync'),
 	clean = require('gulp-clean'),
+	eslint = require('gulp-eslint'),
 	concat = require('gulp-concat'),
 	autoprefixer = require('gulp-autoprefixer'),
- 	browserifyTask = require('./gulp/tasks/browserify'),
- 	devMode = require('./gulp/config').devMode,
+	browserifyTask = require('./gulp/tasks/browserify'),
+	devMode = require('./gulp/config').devMode,
 	reload = browserSync.reload;
 
 //clean
@@ -41,10 +39,9 @@ gulp.task('css', function () {
 
 //JSHint
 gulp.task('lint', function () {
-
 	gulp.src(config.src_scripts)
-		.pipe(jshint())
-		.pipe(jshint.reporter('default'));
+		.pipe(eslint())
+		.pipe(eslint.format());
 });
 
 //Copy fonts
@@ -70,11 +67,11 @@ gulp.task('watchify', function (callback) {
 	browserifyTask(callback, devMode);
 });
 
-gulp.task('watch', ['views', 'css', 'fonts', 'watchify', 'browserSync'], function () {
-	// gulp.watch(config.src_fonts, ['fonts']);
+gulp.task('watch', ['lint', 'views', 'css', 'fonts', 'watchify', 'browserSync'], function () {
+	gulp.watch(config.src_fonts, ['fonts']);
 	// gulp.watch(config.src_views, ['views']);
 	// gulp.watch(config.src_img, ['img']);
-	// gulp.watch(config.src_css, ['css']);
+	gulp.watch(config.src_css, ['css']);
 	// gulp.watch(config.src_scripts, ['lint', 'js']);
 });
 
