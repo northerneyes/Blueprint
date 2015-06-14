@@ -9,6 +9,7 @@ module.exports = {
 	vendor_styles: [],
 	browserSync: {
 		open: false,
+		port: 8080,
 		server: {
 			baseDir: dest
 		}
@@ -20,7 +21,7 @@ module.exports = {
 			outputName: 'vendor.js',
 			require: ['jquery', 'lodash', 'backbone', 'react', 'flux']
 		}, {
-			entries: src + '/',
+			entries: src + '/index.js',
 			sourcemap: true,
 			dest: dest,
 			outputName: 'app.js',

@@ -3,15 +3,12 @@ var $ = require('jquery');
 Backbone.$ = $;
 
 var Store = require('../shared/libs/Store');
+var constants = require('./constants');
 
 class GridModel extends Store.Model {
     constructor() {
-        this.cols = ['date', 'revenue', 'cost'];
-        this.rows = [
-            { date: '2015-01-01', revenue: 14, cost: 7 },
-            { date: '2015-01-02', revenue: 21, cost: 11 },
-            { date: '2015-01-03', revenue: 31, cost: 14}
-        ];
+        this.cols = [];
+        this.rows = [];
         super();
     }
 
@@ -19,8 +16,16 @@ class GridModel extends Store.Model {
         super();
     }
 
-    handleDispatch(/*payload*/) {
+    handleDispatch(payload) {
+        switch (payload.actionType) {
+            case constants.GRID_LOAD:
+            {
+                this.cols = payload.gridData.cols;
+                this.rows = payload.gridData.rows;
+                break;
+            }
 
+        }
     }
 }
 

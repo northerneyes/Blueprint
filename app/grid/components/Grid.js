@@ -3,6 +3,8 @@ var React = require('react');
 var storeMixin = require('../../shared/helpers/storeMixin');
 var GridStore = require('../GridStore');
 var GridRow = require('./GridRow');
+var GridActions = require('../GridActions');
+
 // _(revenue.concat(costs)).groupBy(function (p) {
 // 	return p.date
 // }).map(function (value, key) {
@@ -21,6 +23,10 @@ module.exports = React.createClass({
 	getInitialState: function() {
 		return { GridStore: GridStore };
 	},
+
+	componentWillReceiveProps: function() {
+       GridActions.load();
+    },
 
 	render: function () {
 		return (
@@ -41,3 +47,4 @@ module.exports = React.createClass({
 			);
 	}
 });
+
