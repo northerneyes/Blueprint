@@ -29,6 +29,6 @@ module.exports = React.createClass({
         };
 
         var Component = this.getComponentClass(props.route);
-        return <Component {...props} />;
+        return <div className="component"><Component {...props} /></div>;
     }
 });

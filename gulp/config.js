@@ -1,6 +1,8 @@
 var dest = './dist';
 var src = './app';
 
+var glob = require('glob');
+
 module.exports = {
 	dist: dest,
 	devMode: true,

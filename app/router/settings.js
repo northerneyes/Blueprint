@@ -9,5 +9,5 @@ module.exports = {
     },
 
     // default route when undefined
-    ROUTE_DEFAULT: 'index'
+    ROUTE_DEFAULT: 'grid'
 };

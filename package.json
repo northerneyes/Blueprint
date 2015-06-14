@@ -48,7 +48,8 @@
     "vinyl-source-stream": "~0.1.1",
     "eslint": "^0.22.1",
     "eslint-plugin-react": "^2.5.0",
-    "gulp-eslint": "^0.13.2"
+    "gulp-eslint": "^0.13.2",
+    "glob": "^5.0.10"
   },
   "author": "George Bukhanov",
   "license": "MIT"

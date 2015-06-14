@@ -63,11 +63,14 @@ class RouterModel extends Store.Model {
     handleDispatch(payload) {
         switch (payload.actionType) {
         case constants.ROUTE_NAVIGATE:
+        {
             this.router.navigate(payload.fragment, {
                 trigger: payload.trigger,
                 replace: payload.replace
             });
             break;
+        }
+
         }
     }
 }

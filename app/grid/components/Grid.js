@@ -1,4 +1,8 @@
 var React = require('react');
+
+var storeMixin = require('../../shared/helpers/storeMixin');
+var GridStore = require('../GridStore');
+var GridRow = require('./GridRow');
 // _(revenue.concat(costs)).groupBy(function (p) {
 // 	return p.date
 // }).map(function (value, key) {
@@ -12,12 +16,28 @@ var React = require('react');
 //получился пропуск значения
 // _.merge(revenue, costs, function(r, c){ return  {date: r.date, revenue: r.value, cost: c.value }  });
 module.exports = React.createClass({
+	mixins: [storeMixin(GridStore)],
+
+	getInitialState: function() {
+		return { GridStore: GridStore };
+	},
+
 	render: function () {
 		return (
-			<div className="main">
-				<div className="grid">
-					This is Grid
-				</div>
-			</div>);
+				<table>
+					<thead>
+						<tr>
+						{this.state.GridStore.cols.map((col)=>
+								<th>{col}</th>
+						)}
+						</tr>
+					</thead>
+					<tbody>
+						{this.state.GridStore.rows.map((row)=>
+								<GridRow row={row} cols={this.state.GridStore.cols} />
+						)}
+					</tbody>
+				</table>
+			);
 	}
 });
