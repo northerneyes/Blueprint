@@ -15,6 +15,7 @@ Use Browserify as a bundling tool with Browsersync
 
 ## Test
 ESLint as a linter tool 
+
 Mocha as a JavaScript test framework  
 ````
 gulp lint
