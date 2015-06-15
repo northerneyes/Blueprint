@@ -8,9 +8,6 @@ var ProfitService = require('../shared/services/ProfitService');
 
 module.exports = {
     load: function() {
-        // this.profitService = new ProfitService(revenueProvider, costsProvider);
-        // var data = this.profitService.data();
-
         var revenueValues = _.map(revenueProvider.data(), function(item) {
             return {
                 x: new Date(item.date),

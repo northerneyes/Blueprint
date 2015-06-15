@@ -7,11 +7,12 @@ var constants = require('./constants');
 
 class ChartsModel extends Store.Model {
     constructor() {
+        super();
         this.charts = [];
         this.chartsColors = function() {
             return null;
         };
-        super();
+
     }
 
     initialize() {

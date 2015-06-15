@@ -5,8 +5,6 @@ var revenueProvider = require('../shared/services/RevenueProvider');
 var costsProvider = require('../shared/services/CostsProvider');
 var ProfitService = require('../shared/services/ProfitService');
 
-
-
 module.exports = {
     load: function() {
         this.profitService = new ProfitService(revenueProvider, costsProvider);

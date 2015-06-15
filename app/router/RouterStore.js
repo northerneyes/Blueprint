@@ -48,16 +48,16 @@ class AppRouter extends Backbone.Router {
 
 class RouterModel extends Store.Model {
     constructor() {
+        super();
         this.defaults = {
             route: conf.ROUTE_DEFAULT,
             params: []
         };
-        super();
     }
 
     initialize() {
-        this.router = new AppRouter(this, conf.ROUTE_ROUTES);
         super();
+        this.router = new AppRouter(this, conf.ROUTE_ROUTES);
     }
 
     handleDispatch(payload) {

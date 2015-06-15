@@ -7,11 +7,10 @@ var constants = require('./constants');
 
 class GridModel extends Store.Model {
     constructor() {
+        super();
         this.cols = [];
         this.rows = [];
         this.charts = [];
-
-        super();
     }
 
     initialize() {

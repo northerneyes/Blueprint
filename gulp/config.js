@@ -1,8 +1,6 @@
 var dest = './dist';
 var src = './app';
 
-var glob = require('glob');
-
 module.exports = {
 	dist: dest,
 	devMode: true,
@@ -31,9 +29,7 @@ module.exports = {
 	},
 	src_css: "app/assets/css/**/*.css",
 	src_views: './app/**/*.html',
-	src_fonts: './app/assets/fonts/**/*',
 	src_scripts: './app/**/*.js',
-	dest_css: './dist/assets/css/',
-	dest_scripts: './dist/assets/js/',
-	dest_fonts: './dist/assets/fonts/'
+
+	dest_css: './dist/assets/css/'
 };

@@ -39,21 +39,13 @@ gulp.task('css', function () {
 		}));
 });
 
-//JSHint
+//ESLint
 gulp.task('lint', function () {
 	gulp.src(config.src_scripts)
 		.pipe(eslint())
 		.pipe(eslint.format());
 });
 
-//Copy fonts
-gulp.task('fonts', function () {
-	gulp.src(config.src_fonts)
-		.pipe(gulp.dest(config.dest_fonts))
-		.pipe(reload({
-			stream: true
-		}));
-});
 
 //Copy html
 gulp.task('views', function () {
@@ -77,7 +69,7 @@ gulp.task('test', function (cb) {
 		.pipe(mocha({reporter: 'spec'}));
 });
 
-gulp.task('watch', ['lint', 'views', 'css', 'fonts', 'watchify', 'browserSync'], function () {
+gulp.task('watch', ['lint', 'views', 'css', 'watchify', 'browserSync'], function () {
 	gulp.watch(config.src_css, ['css']);
 });
 

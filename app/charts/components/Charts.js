@@ -54,7 +54,6 @@ module.exports = React.createClass({
 	},
 
 	render: function() {
-		// let { width, height, margin, xScale, yScale, xAxis, ...props } = this.props;
 		var width = this.props.width;
 		if (width === '100%') {
 			width = this.state.parentWidth || 400;
