@@ -18,19 +18,8 @@ module.exports = {
             rows: data
         };
 
-        var revenueValues = _.map(revenueProvider.data(), function(item) {
-            return {
-                x: new Date(item.date),
-                y: item.value
-            };
-        });
-
         dispatch(constants.GRID_LOAD, {
-            gridData: gridData,
-            charts: [{
-                name: 'revenue',
-                values: revenueValues
-            }]
+            gridData: gridData
         });
     },
     filter: function(col) {

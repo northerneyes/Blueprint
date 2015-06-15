@@ -5,7 +5,7 @@ var RouterLink = require('../../router/components/RouterLink');
 module.exports = React.createClass({
     render: function() {
         return (<header>
-            <h1>Data Visialization</h1>
+            <h1>Data Visualization</h1>
             <nav className="navbar">
                 <RouterLink href="grid">Grid</RouterLink>
                 <RouterLink href="charts">Charts</RouterLink>

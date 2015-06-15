@@ -1,14 +1,15 @@
 var React = require('react');
 var rd3 = require('react-d3');
 
-var GridStore = require('../../grid/GridStore');
+var ChartsStore = require('../ChartsStore');
+var ChartsActions = require('../ChartsActions');
 
 var LineChart = rd3.LineChart;
 
 module.exports = React.createClass({
 	getInitialState: function() {
 		return {
-			GridStore: GridStore,
+			ChartsStore: ChartsStore,
 			parentWidth: 0
 		};
 	},
@@ -23,7 +24,7 @@ module.exports = React.createClass({
 	handleResize: function(e) {
 		var elem = React.findDOMNode(this);
 		if (elem) {
-			var width = elem.offsetWidth;
+			var width = elem.parentNode.offsetWidth;
 
 			this.setState({
 				parentWidth: width
@@ -33,9 +34,10 @@ module.exports = React.createClass({
 
 	componentDidMount: function() {
 		var events = 'add remove reset change';
-		GridStore.on(events, function() {
+		ChartsStore.on(events, function() {
 			this.forceUpdate();
 		}, this);
+		ChartsActions.load();
 
 		if (this.props.width === '100%') {
 			window.addEventListener('resize', this.handleResize);
@@ -44,7 +46,7 @@ module.exports = React.createClass({
 	},
 
 	componentWillUnmount: function() {
-		GridStore.off(null, null, this);
+		ChartsStore.off(null, null, this);
 	},
 
 	render: function() {
@@ -54,18 +56,13 @@ module.exports = React.createClass({
 			width = this.state.parentWidth || 400;
 		}
 
-		return ( < LineChart data = {
-				this.state.GridStore.charts
-			}
-			width = {
-				width
-			}
-			height = {
-				400
-			}
-			fill = {
-				'#3182bd'
-			} > < /LineChart>	
+		return ( <LineChart 
+			legend={true}
+			data = {this.state.ChartsStore.charts}
+			width = {width}
+			height = {400}
+			colors = {this.state.ChartsStore.chartsColors}>
+			</LineChart>	
 		);
 	}
 });
