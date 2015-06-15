@@ -19,12 +19,14 @@ class GridModel extends Store.Model {
     handleDispatch(payload) {
         switch (payload.actionType) {
             case constants.GRID_LOAD:
-            {
                 this.cols = payload.gridData.cols;
                 this.rows = payload.gridData.rows;
                 break;
-            }
-
+            case constants.GRID_FILTER:
+                this.cols = payload.gridData.cols;
+                this.rows = payload.gridData.rows;
+                this.trigger('change');
+                break;
         }
     }
 }
