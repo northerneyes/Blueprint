@@ -8,7 +8,7 @@ var constants = require('./constants');
 class ChartsModel extends Store.Model {
     constructor() {
         this.charts = [];
-        this.chartsColors = function(idx) {
+        this.chartsColors = function() {
             return null;
         };
         super();

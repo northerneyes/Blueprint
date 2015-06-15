@@ -1,18 +1,9 @@
 var Backbone = require('backbone');
 var _ = require('lodash');
 
-// _(revenue.concat(costs)).groupBy(function (p) {
-//  return p.date
-// }).map(function (value, key) {
-//  return {
-//      date: key,
-//      revenue: value[0].value,
-//      costs: value[1] ? value[1].value : '-'
-//  };
-// }).value();
-
 class ProfitService extends Backbone.Model {
     constructor(revenueProvider, costsProvider) {
+        super();
         this.revenueProvider = revenueProvider;
         this.costsProvider = costsProvider;
 
@@ -30,8 +21,7 @@ class ProfitService extends Backbone.Model {
             };
         }).value();
 
-        this._data = this.merge(this.revenue, this.costs);
-        super();
+        this.items = this.merge(this.revenue, this.costs);
     }
 
     merge(revenue, costs) {
@@ -67,12 +57,13 @@ class ProfitService extends Backbone.Model {
     }
 
     data() {
-        return this._data;
+        return this.items;
     }
 
     filter(col){
-        return _.sortBy(this._data, col);
+        return _.sortBy(this.data, col);
     }
 }
 
 module.exports = ProfitService;
+

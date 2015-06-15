@@ -2,7 +2,8 @@ var Backbone = require('backbone');
 
 class RevenueProvider extends Backbone.Model {
     constructor() {
-        this._data = [{
+        super();
+        this.items = [{
             date: "2015-01-01",
             value: 14
         }, {
@@ -30,11 +31,11 @@ class RevenueProvider extends Backbone.Model {
             date: "2015-01-11",
             value: 33
         }];
-        super();
+
     }
 
     data() {
-        return this._data;
+        return this.items;
     }
 }
 

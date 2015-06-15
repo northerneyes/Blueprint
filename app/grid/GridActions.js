@@ -1,6 +1,5 @@
 var constants = require('./constants');
 var dispatch = require('../shared/helpers/dispatch');
-var _ = require('lodash');
 
 var revenueProvider = require('../shared/services/RevenueProvider');
 var costsProvider = require('../shared/services/CostsProvider');

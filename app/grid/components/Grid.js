@@ -1,6 +1,5 @@
 var React = require('react');
 
-var storeMixin = require('../../shared/helpers/storeMixin');
 var GridStore = require('../GridStore');
 var GridRow = require('./GridRow');
 var GridActions = require('../GridActions');
@@ -27,7 +26,7 @@ module.exports = React.createClass({
 	},
 
     handleSort: function (col) {
-    	GridActions.filter(col);
+		GridActions.filter(col);
     },
 
 	render: function () {
@@ -36,7 +35,11 @@ module.exports = React.createClass({
 					<thead>
 						<tr>
 						{this.state.GridStore.cols.map((col)=>
-								<th><span onClick={this.handleSort.bind(this, col)}>{col} <i className="fa fa-sort"></i></span></th>
+								<th>
+									<span onClick={this.handleSort.bind(this, col)}>
+										{col} <i className="fa fa-sort"></i>
+									</span>
+								</th>
 						)}
 						</tr>
 					</thead>

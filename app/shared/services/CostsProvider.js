@@ -2,7 +2,8 @@ var Backbone = require('backbone');
 
 class CostsProvider extends Backbone.Model {
     constructor() {
-        this._data = [{
+        super();
+        this.items = [{
             date: "2015-01-01",
             value: 7
         }, {
@@ -30,11 +31,11 @@ class CostsProvider extends Backbone.Model {
             date: "2015-01-11",
             value: 16
         }];
-        super();
+
     }
 
     data() {
-        return this._data;
+        return this.items;
     }
 }
 

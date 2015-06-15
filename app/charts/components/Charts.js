@@ -7,6 +7,10 @@ var ChartsActions = require('../ChartsActions');
 var LineChart = rd3.LineChart;
 
 module.exports = React.createClass({
+	propTypes: {
+		width: React.PropTypes.string
+	},
+
 	getInitialState: function() {
 		return {
 			ChartsStore: ChartsStore,
@@ -21,7 +25,7 @@ module.exports = React.createClass({
 		};
 	},
 
-	handleResize: function(e) {
+	handleResize: function() {
 		var elem = React.findDOMNode(this);
 		if (elem) {
 			var width = elem.parentNode.offsetWidth;
@@ -56,13 +60,13 @@ module.exports = React.createClass({
 			width = this.state.parentWidth || 400;
 		}
 
-		return ( <LineChart 
+		return ( <LineChart
 			legend={true}
 			data = {this.state.ChartsStore.charts}
 			width = {width}
 			height = {400}
-			colors = {this.state.ChartsStore.chartsColors}>
-			</LineChart>	
+			colors = {this.state.ChartsStore.chartsColors}
+			/>
 		);
 	}
 });

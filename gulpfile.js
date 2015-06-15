@@ -7,7 +7,9 @@ var gulp = require('gulp'),
 	autoprefixer = require('gulp-autoprefixer'),
 	browserifyTask = require('./gulp/tasks/browserify'),
 	devMode = require('./gulp/config').devMode,
-	reload = browserSync.reload;
+	reload = browserSync.reload,
+	mocha = require('gulp-mocha'),
+	browserify = require('gulp-browserify');
 
 //clean
 gulp.task('clean', function () {
@@ -65,6 +67,14 @@ gulp.task('views', function () {
 //watch all of this
 gulp.task('watchify', function (callback) {
 	browserifyTask(callback, devMode);
+});
+
+gulp.task('test', function (cb) {
+	//es6 harmony
+	require('mocha-traceur');
+
+	gulp.src('./tests/*.js')
+		.pipe(mocha({reporter: 'spec'}));
 });
 
 gulp.task('watch', ['lint', 'views', 'css', 'fonts', 'watchify', 'browserSync'], function () {
