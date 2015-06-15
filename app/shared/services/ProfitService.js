@@ -61,7 +61,7 @@ class ProfitService extends Backbone.Model {
     }
 
     filter(col){
-        return _.sortBy(this.data, col);
+        return _.sortBy(this.items, col);
     }
 }
 

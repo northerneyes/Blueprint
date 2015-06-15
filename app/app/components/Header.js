@@ -9,6 +9,7 @@ module.exports = React.createClass({
             <nav className="navbar">
                 <RouterLink href="grid">Grid</RouterLink>
                 <RouterLink href="charts">Charts</RouterLink>
+                <RouterLink href="customcharts">Custom Charts</RouterLink>
             </nav>
         </header>
         );

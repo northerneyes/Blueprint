@@ -34,23 +34,27 @@ module.exports = {
                 y: item.profit
             };
         });
+        var charts = [{
+            name: 'revenue',
+            values: revenueValues,
+            color: '#009688'
+        }, {
+            name: 'costs',
+            values: costsValues,
+            color: '#F44336'
+        }, {
+            name: 'profit',
+            values: profitValues,
+            color: '#2196F3'
+        }];
+
+        var colors = _.map(charts, function (chart) {
+            return chart.color;
+        });
 
         dispatch(constants.CHARTS_LOAD, {
-            charts: [{
-                name: 'revenue',
-                values: revenueValues
-            }, {
-                name: 'costs',
-                values: costsValues
-            }, {
-                name: 'profit',
-                values: profitValues
-            }],
-            chartsColors: [
-                '#009688',
-                '#F44336',
-                '#2196F3'
-            ]
+            charts: charts,
+            chartsColors: colors
         });
     }
 };

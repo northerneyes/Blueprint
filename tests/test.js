@@ -37,7 +37,7 @@ describe('ProfitService', function () {
     });
 
     describe("#merge(revenue, costs)", function() {
-        it('should merge correctly', function (done) {
+        it('should merge correctly (costs and revenue has same date)', function (done) {
             var items = profitService.merge(profitService.revenue, profitService.costs);
             var item = items[3];
 
@@ -48,11 +48,19 @@ describe('ProfitService', function () {
             item.cost.should.equal(10);
             item.profit.should.equal(6);
 
-            var item2 = items[5];
+            done();
+        });
 
-            item2.date.should.equal('2015-01-08');
-            item2.revenue.should.equal(29);
-            (item2.cost === undefined).should.be.true;
+        it('should merge correctly (costs and revenue has not same date, cost is undefined)', function (done) {
+            var items = profitService.merge(profitService.revenue, profitService.costs);
+
+            var item = items[5];
+
+            items.length.should.equal(11);
+
+            item.date.should.equal('2015-01-08');
+            item.revenue.should.equal(29);
+            (item.cost === undefined).should.be.true;
 
             done();
         });
@@ -67,6 +75,32 @@ describe('ProfitService', function () {
             item.revenue.should.equal(16);
             item.cost.should.equal(10);
             item.profit.should.equal(6);
+
+            done();
+        });
+    });
+
+    describe("#filter(col)", function() {
+        it('should filter by date correctly', function (done) {
+            var items = profitService.filter('date');
+            var first = items[0];
+            var last = items[items.length - 1];
+
+            items.length.should.equal(11);
+            first.date.should.equal('2015-01-01');
+            last.date.should.equal('2015-01-11');
+
+            done();
+        });
+
+        it('should filter by cost correctly', function (done) {
+            var items = profitService.filter('cost');
+            var first = items[0];
+            var last = items[items.length - 1];
+
+            items.length.should.equal(11);
+            first.cost.should.equal(7);
+            last.revenue.should.equal(36);
 
             done();
         });

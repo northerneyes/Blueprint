@@ -5,7 +5,8 @@ module.exports = {
      */
     ROUTE_ROUTES: {
         'grid': 'grid',
-        'charts': 'charts'
+        'charts': 'charts',
+        'customcharts': 'customcharts'
     },
 
     // default route when undefined

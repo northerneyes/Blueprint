@@ -17,6 +17,9 @@ module.exports = React.createClass({
             case 'charts':
                 return require('../../charts/components/charts');
 
+            case 'customcharts':
+                return require('../../charts/components/customcharts');
+
             default:
                 return require('../../grid/components/grid');
         }
