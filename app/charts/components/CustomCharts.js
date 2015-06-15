@@ -136,7 +136,7 @@ var Legend = React.createClass({
         var liStyleGen = function (color) {
             return {
                 'color': color,
-                'line-height': '115%',
+                'line-height': '100%',
                 'font-size': '150%;'
             };
         };

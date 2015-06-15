@@ -12,16 +12,16 @@ module.exports = React.createClass({
     getComponentClass: function(route) {
         switch (route) {
             case 'grid':
-                return require('../../grid/components/grid');
+                return require('../../grid/components/Grid');
 
             case 'charts':
-                return require('../../charts/components/charts');
+                return require('../../charts/components/Charts');
 
             case 'customcharts':
-                return require('../../charts/components/customcharts');
+                return require('../../charts/components/CustomCharts');
 
             default:
-                return require('../../grid/components/grid');
+                return require('../../grid/components/Grid');
         }
     },
 
