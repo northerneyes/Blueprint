@@ -26,6 +26,10 @@ th {
     white-space: nowrap;
 }
 
+thead th span {
+    cursor: pointer;
+}
+
 tbody th {
     background-color: #2ea879;
 }

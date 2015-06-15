@@ -15,6 +15,9 @@ module.exports = React.createClass({
 	componentWillReceiveProps: function() {
        GridActions.load();
     },
+    handleSort: function (argument) {
+    	alert('click' + argument);
+    },
 
 	render: function () {
 		return (
@@ -22,7 +25,7 @@ module.exports = React.createClass({
 					<thead>
 						<tr>
 						{this.state.GridStore.cols.map((col)=>
-								<th>{col}</th>
+								<th><span onClick={this.handleSort}>{col} <i className="fa fa-sort"></i></span></th>
 						)}
 						</tr>
 					</thead>
