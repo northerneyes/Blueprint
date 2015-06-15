@@ -99,8 +99,24 @@ var LineChart = React.createClass({
         .max()
         .value();
 
+        var minx = _(data).map(function(item){
+            return _.reduce(item.values, function(memo, value) {
+                return Math.min(memo, new Date(value.x));
+            }, new Date());
+        })
+        .min()
+        .value();
+
+        var maxx = _(data).map(function(item){
+            return _.reduce(item.values, function(memo, value) {
+                return Math.max(memo, new Date(value.x));
+            }, 0);
+        })
+        .max()
+        .value();
+
         var xScale = d3.time.scale()
-            .domain([new Date('2015-01-01'), new Date('2015-01-11')])
+            .domain([new Date(minx), new Date(maxx)])
             .range([0, this.props.width]);
 
         var yScale = d3.scale.linear()
