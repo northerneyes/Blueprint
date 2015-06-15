@@ -9,6 +9,8 @@ class GridModel extends Store.Model {
     constructor() {
         this.cols = [];
         this.rows = [];
+        this.charts = [];
+
         super();
     }
 
@@ -21,6 +23,7 @@ class GridModel extends Store.Model {
             case constants.GRID_LOAD:
                 this.cols = payload.gridData.cols;
                 this.rows = payload.gridData.rows;
+                this.charts = payload.charts;
                 break;
             case constants.GRID_FILTER:
                 this.cols = payload.gridData.cols;
