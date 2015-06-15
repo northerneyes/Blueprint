@@ -112,12 +112,43 @@ var LineChart = React.createClass({
         return (
             <Chart width={this.props.width} height={this.props.height}>
                  {data.map((chart)=>
-                         <DataSeries data={chart.values} size={size} xScale={xScale}
+                        <DataSeries data={chart.values} size={size} xScale={xScale}
                              yScale={yScale} ref={chart.name} color={chart.color}/>
                  )}
             </Chart>
         );
     }
+});
+
+var Legend = React.createClass({
+    propTypes: {
+        data: React.PropTypes.array
+    },
+
+    render: function() {
+        var data = this.props.data;
+
+        var ulStyle = {
+            'word-wrap': 'break-word',
+            'width': '190px'
+        };
+
+        var liStyleGen = function (color) {
+            return {
+                'color': color,
+                'line-height': '115%',
+                'font-size': '150%;'
+            };
+        };
+
+        return (
+            <ul style={ulStyle}>
+             {data.map((chart)=>
+                        <li style={liStyleGen(chart.color)}><span>{chart.name}</span></li>
+                 )}
+            </ul>
+        );
+     }
 });
 
 module.exports = React.createClass({
@@ -172,10 +203,14 @@ module.exports = React.createClass({
         if (width === '100%') {
             width = this.state.parentWidth || 400;
         }
-        return (<LineChart
-            data={this.state.ChartsStore.charts}
-            width = {width}
-            height = {400}
-          />);
+        return (
+            <div>
+                <Legend data={this.state.ChartsStore.charts}/>
+                <LineChart
+                    data={this.state.ChartsStore.charts}
+                    width = {width}
+                    height = {400}
+                />
+            </div>);
     }
 });

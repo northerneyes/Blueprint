@@ -5,8 +5,6 @@ var GridRow = require('./GridRow');
 var GridActions = require('../GridActions');
 
 module.exports = React.createClass({
-
-
 	getInitialState: function() {
 		return {
 			GridStore: GridStore

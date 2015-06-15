@@ -78,11 +78,7 @@ gulp.task('test', function (cb) {
 });
 
 gulp.task('watch', ['lint', 'views', 'css', 'fonts', 'watchify', 'browserSync'], function () {
-	gulp.watch(config.src_fonts, ['fonts']);
-	// gulp.watch(config.src_views, ['views']);
-	// gulp.watch(config.src_img, ['img']);
 	gulp.watch(config.src_css, ['css']);
-	// gulp.watch(config.src_scripts, ['lint', 'js']);
 });
 
 gulp.task('default', ['watch']);

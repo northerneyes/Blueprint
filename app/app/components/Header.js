@@ -1,7 +1,6 @@
 var React = require('react');
 var RouterLink = require('../../router/components/RouterLink');
 
-
 module.exports = React.createClass({
     render: function() {
         return (<header>
